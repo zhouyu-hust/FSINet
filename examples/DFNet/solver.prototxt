@@ -1,0 +1,14 @@
+base_lr: 0.00001
+display: 20
+max_iter: 30000
+lr_policy: "step"
+gamma: 0.1
+momentum: 0.9
+weight_decay: 0.0002
+stepsize: 20000
+snapshot: 2000
+snapshot_prefix: "snapshot/dfnet"
+solver_mode: GPU
+net: "dfnet.prototxt"
+iter_size: 2
+random_seed: 1024
