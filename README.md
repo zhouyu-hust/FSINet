@@ -28,7 +28,7 @@ PIOD
 |_ val_doc_2010.txt
 ```
 
-Now, you can use data convert tool to augment and generate HDF5 format data for OFNet. 
+Now, you can use data convert tool to augment and generate HDF5 format data for DFNet. 
 ```
 mkdir data/PIOD/Augmentation
 
@@ -93,7 +93,7 @@ When training completed, you need to modify the save model path `model = 'snapsh
 
 
 #### BSDS ownership
-For training OFNet on BSDS ownership, you can refer the manner as same as PIOD dataset above. The training model is available at [here](https://pan.baidu.com/s/10dIpfIticC1sQUf1qXxjdA ). (code: 5bmf). The testing results are available at [here](https://pan.baidu.com/s/16Sm2VrXBRsR5hIwVkCwU4Q ). (code: 2uni).
+For training DFNet on BSDS ownership, you can refer the manner as same as PIOD dataset above. The training model is available at [here](https://pan.baidu.com/s/10dIpfIticC1sQUf1qXxjdA ). (code: 5bmf). The testing results are available at [here](https://pan.baidu.com/s/16Sm2VrXBRsR5hIwVkCwU4Q ). (code: 2uni).
 
 
 ## Evaluation
