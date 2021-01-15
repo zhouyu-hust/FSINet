@@ -81,7 +81,7 @@ Firstly, you need to download the Res50 weight file from [Res50](https://drive.g
 
 #### PASCAL Instance Occlusion Dataset (PIOD)
 
-For training DFNet on PIOD training dataset, you can run:
+For training FSINet on PIOD training dataset, you can run:
 
 ```
 cd $DFNET_ROOT/examples/DFNet
