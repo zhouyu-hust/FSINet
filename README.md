@@ -1,12 +1,11 @@
-# Occlusion Relationship Reasoning with Dual-path Fusion Network
+# Occlusion Relationship Reasoning with A Feature Separation and Interaction Network
 
 
 ### Introduction
 
-Occlusion relationship reasoning aims to locate where an object occludes others and estimate the depth order of theseobjects in 3D space from a 2D image. It can be regarded as a crucial element for the higher-level vision tasks, such as object tracking, visual perception, object detection, image segmentation, and 3D reconstruction. We propose a Dual-path Fusion Network (DFNet), which integrates  the  advantages  of  the  conventionalmethods and the deep learning methods.
+Occlusion relationship reasoning aims to locate where an object occludes others and estimate the depth order of these objects in the 3D space from a 2D image. The former sub-task demands both the accurate location and the semantic indication of the objects, while the latter one needs the depth order among the objects. Although several insightful studies have been proposed, a key characteristic, i.e., the speciality and complementary between the occlusion boundary detection and the occlusion orientation estimation, is rarely discussed. To verify this claim, in this paper, we propose a network, namely Feature Separation and Interaction Network (FSINet), to integrate these properties into a unified end-to-end network, which comprises of a shared encoder-decoder structure and two separated paths for these two sub-tasks. Concretely, the occlusion boundary path contains an Image-level Cue Extractor to capture rich location information of the boundary, a Detail-perceived Semantic Feature Extractor, and a Contextual Correlation Extractor to acquire refined semantic messages of objects. In addition, a Dual-flow Cross Detector is customized to eliminate false-positive boundaries. As for the occlusion orientation estimation path, a Scene Context Learner is designed to capture the depth order cue around the boundary. As well, two strip convolutions are built to judge the depth order between objects. The shared decoder supplies the feature interaction, which plays a key role in exploiting the complementary of the two paths. Extensive experimental results on the challenging PIOD and BSDS ownership datasets are conducted to reveal the superior performance of FSINet over state-of-the-art alternatives. Plus, abundant ablation studies are offered to demonstrate the effectiveness of our design.
 
 The Data Preparation and Evaluation are following Guoxia Wang with his [DOOBNet](https://github.com/GuoxiaWang/DOOBNet). Thanks for his valuable work.
-
 
 
 ## Data Preparation
@@ -82,7 +81,7 @@ Firstly, you need to download the Res50 weight file from [Res50](https://drive.g
 
 #### PASCAL Instance Occlusion Dataset (PIOD)
 
-For training DFNet on PIOD training dataset, you can run:
+For training FSINet on PIOD training dataset, you can run:
 
 ```
 cd $DFNET_ROOT/examples/DFNet
