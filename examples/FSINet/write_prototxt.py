@@ -8,7 +8,7 @@ print('import caffe success')
 import caffe
 from caffe import layers as L, params as P
 
-from model.dfnet import dfnet
+from model.FSINet import FSINet
 
 def write_network(data_path="../../data/PIOD/Augmentation/train_pair_320x320.lst", batch_size=5):
     n = caffe.NetSpec()
@@ -30,7 +30,7 @@ def write_network(data_path="../../data/PIOD/Augmentation/train_pair_320x320.lst
 
     n.label_edge, n.label_ori = L.Slice(n.label, slice_param={'slice_point': 1}, ntop=2)
 
-    dfnet(n, is_train=True)
+    FSINet(n, is_train=True)
 
     loss_bottoms = [n.edge_p1, n.label_edge]
     n.edge_loss1 = L.ClassBalancedSigmoidCrossEntropyAttentionLoss(*loss_bottoms,
@@ -52,7 +52,7 @@ def write_network(data_path="../../data/PIOD/Augmentation/train_pair_320x320.lst
     loss_bottoms = [n.unet1b_ori, n.label_ori, n.label_edge]
     n.ori_loss = L.OrientationSmoothL1Loss(*loss_bottoms, loss_weight=1.0, smooth_l1_loss_param={'sigma': 3.0})
 
-    with open('dfnet.prototxt', 'w') as f:
+    with open('FSINet.prototxt', 'w') as f:
         f.write(str(n.to_proto()))  ## write network
 
 

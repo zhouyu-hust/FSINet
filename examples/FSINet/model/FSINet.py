@@ -511,7 +511,7 @@ def edge_path(n, bottom):
     side_convert(n)
 
 
-def _aspp_block2(n, bottom, dil_rates=[2, 3, 6], out_dim=256):
+def _mcl(n, bottom, dil_rates=[2, 3, 6], out_dim=256):
     n.aspp_1, _, _, n.relu_aspp_1 = _conv_bn_scale_relu(bottom, nout=out_dim, bias_term=False,
                                                         kernel_size=1, stride=1, pad=0, weight_filler={"type": "msra"})
     n.aspp_2, _, _, n.relu_aspp_2, = _conv_bn_scale_relu(bottom, nout=out_dim, kernel_size=3,
@@ -532,7 +532,7 @@ def _aspp_block2(n, bottom, dil_rates=[2, 3, 6], out_dim=256):
 
 def ori_path(n, bottom):
     ## aspp module
-    _aspp_block2(n, bottom)
+    _mcl(n, bottom)
 
     n.aspp_reduce, _, _, n.aspp_reduce_relu = \
         _conv_bn_scale_relu(n.aspp_refine_relu, nout=16, bias_term=False, kernel_size=3,
@@ -576,7 +576,7 @@ def ori_path(n, bottom):
 
 
 
-def dfnet(n,is_train=True):
+def FSINet(n,is_train=True):
     global bn_global_stats
     bn_global_stats = False if is_train else True
 

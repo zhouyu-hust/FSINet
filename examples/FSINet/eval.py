@@ -18,12 +18,12 @@ print("import caffe success")
 
 
 def net_deploy(deploy_prototxt, model):
-    from model.dfnet import dfnet
+    from model.FSINet import FSINet
 
     n = caffe.NetSpec()
     n.data = L.Input(shape=[dict(dim=[1, 3, 224, 224])])
 
-    dfnet(n, is_train=False)
+    FSINet(n, is_train=False)
     n.sigmoid_edge = L.Sigmoid(n.edge_pfuse)
     n.sigmoid_edge1 = L.Sigmoid(n.edge_p1)
     n.sigmoid_edge2 = L.Sigmoid(n.edge_p2)
@@ -38,10 +38,10 @@ def net_deploy(deploy_prototxt, model):
 
 ## should change the [model path] + [save_path] + [import module]
 data_root = '../../data/PIOD/Augmentation/'
-save_root = 'Output/dfnet/'
-model = 'snapshot/dfnet_iter_30000.caffemodel'
+save_root = 'Output/FSINet/'
+model = 'snapshot/FSINet_iter_30000.caffemodel'
 
-deploy_prototxt = 'dfnet_eval.prototxt'
+deploy_prototxt = 'FSINet_eval.prototxt'
 
 # load net
 caffe.set_mode_gpu()

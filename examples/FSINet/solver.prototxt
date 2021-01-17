@@ -7,8 +7,8 @@ momentum: 0.9
 weight_decay: 0.0002
 stepsize: 20000
 snapshot: 2000
-snapshot_prefix: "snapshot/dfnet"
+snapshot_prefix: "snapshot/FSINet"
 solver_mode: GPU
-net: "dfnet.prototxt"
+net: "FSINet.prototxt"
 iter_size: 2
 random_seed: 1024
