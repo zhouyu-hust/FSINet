@@ -1,5 +1,8 @@
 # Occlusion Relationship Reasoning with A Feature Separation and Interaction Network
 
+Code for the paper Occlusion Relationship Reasoning with A Feature Separation and Interaction Network. Submit to TPAMI.
+
+Authors: Yu Zhou, Rui Lu, Feng Xue,Yuzhe Gao, and Xiaojie Guo
 
 ### Introduction
 
