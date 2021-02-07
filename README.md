@@ -1,22 +1,21 @@
 # Occlusion Relationship Reasoning with A Feature Separation and Interaction Network
 
-Code for the paper Occlusion Relationship Reasoning with A Feature Separation and Interaction Network. Submit to TPAMI.
+Code for the paper "Occlusion Relationship Reasoning with A Feature Separation and Interaction Network". Submit to TPAMI.
 
 Authors: Yu Zhou, Rui Lu, Feng Xue,Yuzhe Gao, and Xiaojie Guo
 
 ### Introduction
 
-In this work, we propose the Feature Separation and Interaction Network (FSINet) to present the speciality and complementary between the occlusion boundary detection and the occlusion orientation estimation. 
+In this work, we propose the Feature Separation and Interaction Network (FSINet) to present the speciality and complementarity between the occlusion boundary detection and the occlusion orientation estimation. 
 
 The occlusion boundary path contains an Image-level Cue Extractor (ICE) to capture rich location information of the boundary, a Detail-perceived Semantic Feature Extractor (DSFE), and a Contextual Correlation Extractor (CCE) to acquire refined semantic messages of objects. A Dual-flow Cross Detector (DCD) is customized to eliminate false-positive boundaries. 
 
 The occlusion orientation estimation path contains a Scene Context Learner (SCL) is designed to capture the depth order cue around the boundary, and two strip convolutions are built to judge the depth order between objects. 
 
-The shared decoder supplies the feature interaction, which plays a key role in exploiting the complementary of the two paths. 
+The shared decoder supplies the feature interaction, which plays a key role in exploiting the complementarity of the two paths. 
 
 ![FSINet](images/FSINet_arch.png)
 
-<div align=center id="model">Network Architecture</div>
 
 ## Data Preparation
 
