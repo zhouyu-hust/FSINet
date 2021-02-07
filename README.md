@@ -6,7 +6,17 @@ Authors: Yu Zhou, Rui Lu, Feng Xue,Yuzhe Gao, and Xiaojie Guo
 
 ### Introduction
 
-Occlusion relationship reasoning aims to locate where an object occludes others and estimate the depth order of these objects in the 3D space from a 2D image. The former sub-task demands both the accurate location and the semantic indication of the objects, while the latter one needs the depth order among the objects. Although several insightful studies have been proposed, a key characteristic, i.e., the speciality and complementary between the occlusion boundary detection and the occlusion orientation estimation, is rarely discussed. To verify this claim, in this paper, we propose a network, namely Feature Separation and Interaction Network (FSINet), to integrate these properties into a unified end-to-end network, which comprises of a shared encoder-decoder structure and two separated paths for these two sub-tasks. Concretely, the occlusion boundary path contains an Image-level Cue Extractor to capture rich location information of the boundary, a Detail-perceived Semantic Feature Extractor, and a Contextual Correlation Extractor to acquire refined semantic messages of objects. In addition, a Dual-flow Cross Detector is customized to eliminate false-positive boundaries. As for the occlusion orientation estimation path, a Scene Context Learner is designed to capture the depth order cue around the boundary. As well, two strip convolutions are built to judge the depth order between objects. The shared decoder supplies the feature interaction, which plays a key role in exploiting the complementary of the two paths. Extensive experimental results on the challenging PIOD and BSDS ownership datasets are conducted to reveal the superior performance of FSINet over state-of-the-art alternatives. Plus, abundant ablation studies are offered to demonstrate the effectiveness of our design.
+In this work, we propose the Feature Separation and Interaction Network (FSINet) to present the speciality and complementary between the occlusion boundary detection and the occlusion orientation estimation. 
+
+The occlusion boundary path contains an Image-level Cue Extractor (ICE) to capture rich location information of the boundary, a Detail-perceived Semantic Feature Extractor (DSFE), and a Contextual Correlation Extractor (CCE) to acquire refined semantic messages of objects. A Dual-flow Cross Detector (DCD) is customized to eliminate false-positive boundaries. 
+
+The occlusion orientation estimation path contains a Scene Context Learner (SCL) is designed to capture the depth order cue around the boundary, and two strip convolutions are built to judge the depth order between objects. 
+
+The shared decoder supplies the feature interaction, which plays a key role in exploiting the complementary of the two paths. 
+
+![FSINet](images/FSINet_arch.png)
+
+<div align=center id="model">Network Architecture</div>
 
 ## Data Preparation
 
@@ -112,4 +122,29 @@ For visualization, to run the script:
 ```
 run doobscripts/visulation/PlotAll.m
 ```
+
+#### Results
+
+Tab.1 Comparisons on the PIOD dataset with the state-of-the-art methods.
+
+|  Method   |   ODS-E   |   OIS-E   |   AP-E   |   ODS-O   |   OIS-O   |   AP-O   |
+| ---- | --- | --- | --- | --- | --- | --- |
+| SRF-OCC | .345 | .369 | .207 | .268 | .286 | .152 |
+| DOC-HED  | .509 | .532| .468 | .460 | .479 | .405 |
+| DOC-DMLFOV | .669 | .684 | .677 | .601 | .611 | .585 |
+| DOOBNet | .736 | .746 | .723 | .702 | .712 | .683 |
+| OFNet | .751 | .762 | .773 | .718 | .728 | .729 |
+| FSINet | .762 | .774 | .779 | .733 | .743 | .738 |
+
+Tab.2 Comparisons on the BSDS ownership dataset with the state-of-the-art methods.
+
+|  Method   |   ODS-E   |   OIS-E   |   AP-E   |   ODS-O   |   OIS-O   |   AP-O   |
+| ---- | --- | --- | --- | --- | --- | --- |
+| SRF-OCC | .511 | .544 | .442 | .419 | .448 | .337 |
+| DOC-HED  | .658 | .685 | .602 | .522 | .545 | .428 |
+| DOC-DMLFOV | .579 | .609 | .519 | .463 | .491 | .369 |
+| DOOBNet | .647 | .668 | .539 | .555 | .570 | .440 |
+| OFNet | .662 | .689 | .585 | .583 | .607 | .501 |
+| FSINet | .657 | .692 | .598 | .591 | .620 | .515 |
+
     
