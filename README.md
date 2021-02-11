@@ -2,17 +2,11 @@
 
 Code for the paper "Occlusion Relationship Reasoning with A Feature Separation and Interaction Network". Submit to TPAMI.
 
-Authors: Yu Zhou, Rui Lu, Feng Xue,Yuzhe Gao, and Xiaojie Guo
+Authors: Yu Zhou, Rui Lu, Feng Xue,Yuzhe Gao, Xiaojie Guo and Wenqing Cheng
 
 ### Introduction
 
-In this work, we propose the Feature Separation and Interaction Network (FSINet) to present the speciality and complementarity between the occlusion boundary detection and the occlusion orientation estimation. 
-
-The occlusion boundary path contains an Image-level Cue Extractor (ICE) to capture rich location information of the boundary, a Detail-perceived Semantic Feature Extractor (DSFE), and a Contextual Correlation Extractor (CCE) to acquire refined semantic messages of objects. A Dual-flow Cross Detector (DCD) is customized to eliminate false-positive boundaries. 
-
-The occlusion orientation estimation path contains a Scene Context Learner (SCL) is designed to capture the depth order cue around the boundary, and two strip convolutions are built to judge the depth order between objects. 
-
-The shared decoder supplies the feature interaction, which plays a key role in exploiting the complementarity of the two paths. 
+Occlusion relationship reasoning aims to locate where an object occludes others and estimate the depth order of theseobjects in the 3D space from a 2D image. The former sub-task demands both the accurate location and the semantic indication of theobjects, while the latter one needs the depth order among the objects. Although several insightful studies have been proposed, a keycharacteristic,i.e., the specialty and complementarity between the occlusion boundary detection and the occlusion orientationestimation, is rarely discussed. To verify this claim, in this paper, we propose a network, namely Feature Separation and InteractionNetwork (FSINet), to integrate these properties into a unified end-to-end network, which comprises of a shared encoder-decoderstructure and two separated paths for these two sub-tasks. Concretely, the occlusion boundary path contains an Image-level CueExtractor to capture rich location information of the boundary, a Detail-perceived Semantic Feature Extractor, and a ContextualCorrelation Extractor to acquire refined semantic messages of objects. In addition, a Dual-flow Cross Detector is customized toalleviate false-positive and false-negative boundaries. As for the occlusion orientation estimation path, a Scene Context Learner isdesigned to capture the depth order cue around the boundary. As well, two strip convolutions are built to judge the depth order betweenobjects. The shared decoder supplies the feature interaction, which plays a key role in exploiting the complementarity of the two paths.Extensive experimental results on the PIOD and BSDS ownership datasets are conducted to reveal the superior performance ofFSINet over state-of-the-art alternatives. Plus, abundant ablation studies are offered to demonstrate the effectiveness of our design.
 
 ![FSINet](images/FSINet_arch.png)
 
